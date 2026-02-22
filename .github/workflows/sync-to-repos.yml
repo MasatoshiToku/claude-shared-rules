@@ -20,6 +20,7 @@ jobs:
           - ai-chatbot
           - slack-later-to-notion
           - study-time-tracker
+          - BizOps-Secrets
 
     steps:
       - name: Checkout claude-shared-rules
