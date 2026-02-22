@@ -1,0 +1,51 @@
+name: Sync shared rules to all repos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.md'
+      - '!README.md'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        repo:
+          - salesforce-mcp-server
+          - poper-sfdx
+          - ai-chatbot
+          - slack-later-to-notion
+          - study-time-tracker
+
+    steps:
+      - name: Checkout claude-shared-rules
+        uses: actions/checkout@v4
+        with:
+          path: shared-rules
+
+      - name: Clone target repo
+        run: |
+          git clone https://x-access-token:${{ secrets.SYNC_PAT }}@github.com/MasatoshiToku/${{ matrix.repo }}.git target-repo
+
+      - name: Copy shared rules
+        run: |
+          mkdir -p target-repo/.claude/rules/shared
+          find shared-rules -maxdepth 1 -name "*.md" ! -name "README.md" \
+            -exec cp {} target-repo/.claude/rules/shared/ \;
+
+      - name: Commit and push
+        run: |
+          cd target-repo
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .claude/rules/shared/
+          if git diff --staged --quiet; then
+            echo "No changes in ${{ matrix.repo }}, skipping commit."
+          else
+            git commit -m "chore: sync shared Claude Code rules from claude-shared-rules"
+            git push
+            echo "✅ Synced to ${{ matrix.repo }}"
+          fi
