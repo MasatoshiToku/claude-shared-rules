@@ -42,7 +42,7 @@ jobs:
           cd target-repo
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add .claude/rules/shared/
+          git add -f .claude/rules/shared/
           if git diff --staged --quiet; then
             echo "No changes in ${{ matrix.repo }}, skipping commit."
           else
