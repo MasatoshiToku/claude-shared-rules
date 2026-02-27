@@ -15,12 +15,29 @@ jobs:
       fail-fast: false
       matrix:
         repo:
-          - salesforce-mcp-server
-          - poper-sfdx
+          - account-approach-advisor
           - ai-chatbot
-          - slack-later-to-notion
-          - study-time-tracker
+          - backlog-vc-su-securities
+          - backlog-vc-su-sync
           - BizOps-Secrets
+          - chrome-time-tracker
+          - CS-Slack-Export
+          - flow-error-forwarder
+          - freee-connector
+          - legal-ai-agent
+          - meet-recording-sync
+          - meet-recording-sync-v2
+          - pardot-email-analytics
+          - poper-sfdx
+          - root-gas-project
+          - salesforce-mcp-server
+          - slack-later-to-notion
+          - slack-message-deleter
+          - slack-notion-decision-logger
+          - slack-to-notebooklm
+          - stripe-invoice-exporter
+          - study-time-tracker
+          - x-ai-buzz-collector
 
     steps:
       - name: Checkout claude-shared-rules
