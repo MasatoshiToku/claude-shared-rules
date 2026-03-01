@@ -15,33 +15,13 @@ jobs:
       fail-fast: false
       matrix:
         repo:
-          - account-approach-advisor
           - ai-chatbot
           - any-utils
-          - backlog-vc-su-securities
-          - backlog-vc-su-sync
-          - chrome-time-tracker
-          - CS-Slack-Export
-          - flow-error-forwarder
-          - freee-connector
-          - legal-ai-agent
-          - meet-recording-sync
-          - meet-recording-sync-v2
-          - pardot-email-analytics
+          - gas-monorepo
           - poper-sfdx
-          - root-gas-project
           - salesforce-mcp-server
           - slack-later-to-notion
-          - slack-message-deleter
           - slack-notion-decision-logger
-          - slack-to-notebooklm
-          - stripe-invoice-exporter
-          - study-time-tracker
-          - drive-service-account-lib
-          - morning-meeting-sync
-          - proactive-ai-assistant
-          - x-ai-buzz-collector
-          - zaim-asset-tracker
 
     steps:
       - name: Checkout claude-shared-rules
