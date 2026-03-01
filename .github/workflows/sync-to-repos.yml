@@ -17,9 +17,9 @@ jobs:
         repo:
           - account-approach-advisor
           - ai-chatbot
+          - any-utils
           - backlog-vc-su-securities
           - backlog-vc-su-sync
-          - BizOps-Secrets
           - chrome-time-tracker
           - CS-Slack-Export
           - flow-error-forwarder
@@ -37,7 +37,11 @@ jobs:
           - slack-to-notebooklm
           - stripe-invoice-exporter
           - study-time-tracker
+          - drive-service-account-lib
+          - morning-meeting-sync
+          - proactive-ai-assistant
           - x-ai-buzz-collector
+          - zaim-asset-tracker
 
     steps:
       - name: Checkout claude-shared-rules
